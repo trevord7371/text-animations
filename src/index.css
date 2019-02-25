@@ -1,14 +1,109 @@
-body {
+/* Universal Reset */
+* {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 20px;
+  background-image: linear-gradient(to right bottom, coral, rgb(255, 185, 80));
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.text-container {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.heading-primary-main {
+  display: block;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 30px;
+
+  animation-name: moveInLeft;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+
+  animation-iteration-count: 3;
+  animation-delay: 3s;
+  }
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17px;
+  margin-bottom: 50px;
+
+  animation: moveInRight 3s ease-out;
+
+}
+
+@keyframes moveInLeft {
+  0% {
+     opacity: 0;
+     transform: translateX(100px)
+  }
+  80% {
+     transform: translateX(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes moveInRight {
+ 0% {
+    opacity: 0;
+    transform: translateX(-100px)
+ }
+ 80% {
+    transform: translateX(10px);
+ }
+ 100% {
+   opacity: 1;
+   transform: translateX(0px);
+ }
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  /* No shaddow in the X direction only in the Y direction with a blur of 20px and black colour with an opacity of .2 */
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  /* When you click on a button you want the shadow to appear smaller and less blurred */
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 30px;
+  transition: all .2s;
+}
+
+.btn-white {
+  background-color: #777;
+  color:white;
 }
